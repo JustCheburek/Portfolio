@@ -6,7 +6,7 @@ import { Article, Columns, LinkArticle, Main, MiniArticle, Section } from "@comp
 import { H1, H2, H3, ListHeading, P, Small } from "@components/text";
 import { HH_URL, MB_URL, TG_URL, TVOK_URL } from "@/consts";
 
-function capitalizeFirstLetter(string) {
+function capitalizeFirstLetter(string: string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
