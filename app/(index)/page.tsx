@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { DateBox, TimeBox } from "./date";
 import { Weather } from "@server/weather";
-import { Spotify } from "@server/spotify";
+/*import { Spotify } from "@server/spotify";*/
 import { Article, Columns, LinkArticle, Main, MiniArticle, Section } from "@components/basic";
 import { H1, H2, H3, ListHeading, P, Small } from "@components/text";
 import { HH_URL, MB_URL, TG_URL, TVOK_URL } from "@/consts";
@@ -10,17 +10,17 @@ function capitalizeFirstLetter(string: string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-function msRender(ms?: number) {
+/*function msRender(ms?: number) {
   if (!ms) return "00:00";
 
   const minutes = Math.floor(ms / 60000);
   const seconds = Number(((ms % 60000) / 1000).toFixed(0));
   return minutes + ":" + (seconds < 10 ? "0" : "") + seconds;
-}
+}*/
 
 export default async function Portfolio() {
   const weather = await Weather();
-  const spotify = await Spotify();
+  /*const spotify = await Spotify();*/
 
   return (
     <Main>
@@ -83,7 +83,7 @@ export default async function Portfolio() {
             </Section>
           </Article>
 
-          <Article className="flex">
+          {/*<Article className="flex">
             {spotify?.item?.album?.images[1]?.url
               ? <Image
                 alt="Плейлист"
@@ -117,7 +117,7 @@ export default async function Portfolio() {
                 </Small>
               </div>
             </div>
-          </Article>
+          </Article>*/}
         </Section>
 
         <Section>
