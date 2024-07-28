@@ -1,4 +1,4 @@
-import { PropsWithChildren } from "react";
+import { ComponentPropsWithoutRef, PropsWithChildren } from "react";
 import { cn } from "@server/cn";
 import Link from "next/link";
 
@@ -61,12 +61,12 @@ export const ListHeading = ({children}: PropsWithChildren) => (
 )
 
 export const P = (
-  { children, className }: TextProps
+  { children, className, ...props }: PropsWithChildren<ComponentPropsWithoutRef<"p">>
 ) => (
   <p className={cn(
     "text-neutral-300/95",
     className
-  )}>
+  )} {...props}>
     {children}
   </p>
 );
