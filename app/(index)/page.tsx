@@ -14,7 +14,7 @@ function msRender(ms?: number) {
   if (!ms) return "00:00";
 
   const minutes = Math.floor(ms / 60000);
-  const seconds = ((ms % 60000) / 1000).toFixed(0);
+  const seconds = Number(((ms % 60000) / 1000).toFixed(0));
   return minutes + ":" + (seconds < 10 ? "0" : "") + seconds;
 }
 
