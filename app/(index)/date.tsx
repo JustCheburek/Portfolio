@@ -3,6 +3,7 @@
 import {useEffect, useState} from "react";
 import dayjs from "dayjs";
 import "dayjs/locale/ru";
+import { P, Small } from "@components/text";
 
 dayjs.locale("ru")
 
@@ -15,12 +16,12 @@ export function TimeBox() {
 
 	return (
 			<>
-				<p className="text-neutral-200/95" suppressHydrationWarning>
+				<P suppressHydrationWarning>
 					{date.format("H a")}
-				</p>
-				<small className="text-neutral-400">
+				</P>
+				<Small>
 					UTC+10
-				</small>
+				</Small>
 			</>
 	)
 }
@@ -34,12 +35,12 @@ export function DateBox() {
 
 	return (
 			<>
-				<p className="text-neutral-200/95" suppressHydrationWarning>
+				<P suppressHydrationWarning>
 					{date.format("D MMMM")}
-				</p>
-				<small className="text-neutral-400">
+				</P>
+				<Small>
 					{date.year()} г.
-				</small>
+				</Small>
 			</>
 	)
 }
