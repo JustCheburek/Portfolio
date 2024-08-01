@@ -20,7 +20,6 @@ function msRender(ms?: number) {
 export default async function Portfolio() {
   const weather = await Weather();
   const spotify = await Spotify();
-  console.log(spotify);
 
   return (
     <Main>
@@ -108,10 +107,10 @@ export default async function Portfolio() {
             <div className="grid gap-2">
               <div>
                 <H3>
-                  {spotify.item?.name ?? "Сейчас ничего не играет"}
+                  {spotify?.item?.name ?? "Сейчас ничего не играет"}
                 </H3>
                 <P>
-                  {spotify.item?.artists?.map(artist => artist.name).join(", ") ?? ""}
+                  {spotify?.item?.artists?.map(artist => artist.name).join(", ") ?? ""}
                 </P>
               </div>
               <div className="flex fade items-center gap-4">
@@ -121,10 +120,10 @@ export default async function Portfolio() {
                 <progress
                   className="flex-1 w-40 sm:w-48 md:w-64 h-1 rounded-full"
                   value={spotify?.progress_ms || 0}
-                  max={spotify.item?.duration_ms || 0}
+                  max={spotify?.item?.duration_ms || 0}
                 />
                 <Small>
-                  {msRender(spotify.item?.duration_ms || 0)}
+                  {msRender(spotify?.item?.duration_ms || 0)}
                 </Small>
               </div>
             </div>
