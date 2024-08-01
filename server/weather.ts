@@ -1,13 +1,6 @@
 import {unstable_cache as cache} from "next/cache"
 import {AsyncWeather} from "@cicciosgamino/openweather-apis"
-
-type Weather = {
-	temp: number,
-	humidity: number,
-	pressure: number,
-	description: string,
-	weathercode: number
-}
+import type {Weather} from "@types/weather";
 
 export const Weather = cache(
 		async (): Promise<Weather> => {

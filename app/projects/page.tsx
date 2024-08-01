@@ -1,9 +1,24 @@
-import { Columns, LinkArticle, Main, Section } from "@components/basic";
-import { H1, H1Box, H2, P, Small } from "@components/text";
-import Link from "next/link";
+import { Article, Columns, Main, Section } from "@components/basic";
+import { H1Box, H2, P, Small } from "@components/text";
 import { CATCHCAM_URL, HH_URL, JARVIS_URL, MB_URL, TVOK_URL } from "@/consts";
 import { MinebridgeSvg } from "@ui/SVGS";
 import Image from "next/image";
+import type { Metadata } from "next";
+
+const ProjectsURL = new URL(process.env.NEXT_PUBLIC_URL!, "/projects");
+
+export const metadata: Metadata = {
+  title: "Проекты",
+  description: "Имею много проектов на разные темы!",
+  alternates: {
+    canonical: ProjectsURL
+  },
+  openGraph: {
+    title: "Проекты",
+    description: 'Имею много проектов на разные темы!',
+    url: ProjectsURL
+  },
+};
 
 export default function Projects() {
   return (
@@ -18,7 +33,7 @@ export default function Projects() {
             Сайты
           </H2>
 
-          <LinkArticle href={MB_URL}>
+          <Article href={MB_URL}>
             <MinebridgeSvg size="3em" />
             <div>
               <H2 className="text-mb">
@@ -28,9 +43,9 @@ export default function Projects() {
                 майнкрафт сервер
               </P>
             </div>
-          </LinkArticle>
+          </Article>
 
-          <LinkArticle href={HH_URL} frozen>
+          <Article href={HH_URL} frozen>
             <div className="w-[3.3em] h-[3.3em] relative">
               <Image src="/hh.jpeg" alt="Лого HH - hands of help" className="rounded-full" fill />
             </div>
@@ -42,9 +57,9 @@ export default function Projects() {
                 самопомощь онлайн
               </P>
             </div>
-          </LinkArticle>
+          </Article>
 
-          <LinkArticle href={TVOK_URL} frozen>
+          <Article href={TVOK_URL} frozen>
             <div className="w-[3.3em] h-[3.3em] relative">
               <Image src="/tvok.png" alt="Лого HH - hands of help" className="rounded-full" fill />
             </div>
@@ -56,7 +71,7 @@ export default function Projects() {
                 творческая коалиция
               </P>
             </div>
-          </LinkArticle>
+          </Article>
         </Section>
 
         <Section className="text-center">
@@ -64,7 +79,7 @@ export default function Projects() {
             Другое
           </H2>
 
-          <LinkArticle href={JARVIS_URL}>
+          <Article href={JARVIS_URL}>
             <div>
               <H2 className="text-fuchsia-600/80">
                 Jarvis
@@ -73,9 +88,9 @@ export default function Projects() {
                 умный помощник
               </P>
             </div>
-          </LinkArticle>
+          </Article>
 
-          <LinkArticle href={CATCHCAM_URL}>
+          <Article href={CATCHCAM_URL}>
             <div>
               <H2 className="text-orange-500">
                 CatchCam
@@ -87,7 +102,7 @@ export default function Projects() {
                 нужна камера
               </Small>
             </div>
-          </LinkArticle>
+          </Article>
         </Section>
       </Columns>
     </Main>

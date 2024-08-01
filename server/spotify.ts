@@ -1,7 +1,6 @@
 import {unstable_cache as cache} from "next/cache"
 import axios from "axios";
-import {AccessToken} from "spotify-types"
-/*CurrentlyPlaying*/
+import { AccessToken, CurrentlyPlaying } from "spotify-types";
 
 const {
 	SPOTIFY_CLIENT_ID: client_id,
@@ -30,11 +29,10 @@ const getAccessToken = async (): Promise<AccessToken> => {
 };
 
 export const Spotify = cache(
-		async (): Promise<any> => {
-			// CurrentlyPlaying
+		async (): Promise<CurrentlyPlaying> => {
 			const {access_token} = await getAccessToken();
 
-			return await axios.get(
+			return await axios.get<CurrentlyPlaying>(
 					NOW_PLAYING_ENDPOINT,
 					{
 						headers: {

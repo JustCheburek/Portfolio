@@ -6,6 +6,15 @@
 	--mb-color: #00A7B1;
 	--hh-color: #91f291;
 	--tvok-color: #EFBB00;
+	--ts-color: #3178C6;
+	--js-color: #FFD600;
+	--react-color: rgb(88 196 220 / 1);
+	--tailwind-color: rgb(14 165 233 / 1);
+	--sass-color: #bf4080;
+	--nextjs-color: hsla(0, 0%, 93%, 1);
+	--mongodb-color: #00ED64;
+	--typegoose-color: #25c2a0;
+
 	--foreground-rgb: 0, 0, 0;
 	--background-start-rgb: 214, 219, 220;
 	--background-end-rgb: 255, 255, 255;

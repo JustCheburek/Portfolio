@@ -8,15 +8,18 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))"
-      },
       colors: {
         "mb": "var(--mb-color)",
         "hh": "var(--hh-color)",
-        "tvok": "var(--tvok-color)"
+        "tvok": "var(--tvok-color)",
+        "ts": "var(--ts-color)",
+        "js": "var(--js-color)",
+        "react": "var(--react-color)",
+        "tailwind": "var(--tailwind-color)",
+        "sass": "var(--sass-color)",
+        "nextjs": "var(--nextjs-color)",
+        "mongodb": "var(--mongodb-color)",
+        "typegoose": "var(--typegoose-color)"
       }
     }
   },

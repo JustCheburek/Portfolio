@@ -1,51 +1,61 @@
 import Image from "next/image";
-import { DateBox, TimeBox } from "./date";
 import { Weather } from "@server/weather";
-/*import { Spotify } from "@server/spotify";*/
-import { Article, Columns, LinkArticle, Main, MiniArticle, Section } from "@components/basic";
+import { Spotify } from "@server/spotify";
+import { Article, Columns, Main, Section } from "@components/basic";
 import { H1, H2, H3, ListHeading, P, Small } from "@components/text";
 import { HH_URL, MB_URL, TG_URL, TVOK_URL } from "@/consts";
+import dayjs from "dayjs";
+import "dayjs/locale/ru";
 
-function capitalizeFirstLetter(string: string) {
-  return string.charAt(0).toUpperCase() + string.slice(1);
-}
+dayjs.locale("ru");
 
-/*function msRender(ms?: number) {
+function msRender(ms?: number) {
   if (!ms) return "00:00";
 
   const minutes = Math.floor(ms / 60000);
   const seconds = Number(((ms % 60000) / 1000).toFixed(0));
   return minutes + ":" + (seconds < 10 ? "0" : "") + seconds;
-}*/
+}
 
 export default async function Portfolio() {
   const weather = await Weather();
-  /*const spotify = await Spotify();*/
+  const spotify = await Spotify();
+  console.log(spotify);
 
   return (
     <Main>
       <Columns>
         <Section>
           <Section className="lg:grid-cols-4">
-            <MiniArticle>
-              <TimeBox />
-            </MiniArticle>
+            <Article>
+              <P>
+                {dayjs().format("H a")}
+              </P>
+              <Small>
+                UTC+10
+              </Small>
+            </Article>
 
-            <MiniArticle>
-              <DateBox />
-            </MiniArticle>
-
-            <MiniArticle className="col-span-2">
+            <Article>
               <P suppressHydrationWarning>
-                {capitalizeFirstLetter(weather.description)}
+                {dayjs().format("D MMMM")}
+              </P>
+              <Small>
+                {dayjs().year()} г.
+              </Small>
+            </Article>
+
+            <Article className="col-span-2">
+              <P suppressHydrationWarning className="first-letter:uppercase">
+                {weather.description}
               </P>
               <Small>
                 {weather.temp} °C
               </Small>
-            </MiniArticle>
+            </Article>
           </Section>
 
-          <Article>
+          <Article box>
             <div className="flex gap-6 items-center flex-wrap">
               <Image
                 src="/me.png" alt="Голова скина лягушки"
@@ -76,14 +86,15 @@ export default async function Portfolio() {
             </H3>
 
             <Section className="grid-cols-2 text-neutral-300/85 hover:text-neutral-200/95 duration-100">
-              <LinkArticle href={TG_URL} className="p-3">
+              <Article href={TG_URL} className="p-3">
                 <span className="icon-[logos--telegram] w-[1.2em] h-[1.2em]" />
                 Написать
-              </LinkArticle>
+              </Article>
+              {/* todo: миникнопки для других соцсетей */}
             </Section>
           </Article>
 
-          {/*<Article className="flex">
+          <Article className="flex" box>
             {spotify?.item?.album?.images[1]?.url
               ? <Image
                 alt="Плейлист"
@@ -117,11 +128,11 @@ export default async function Portfolio() {
                 </Small>
               </div>
             </div>
-          </Article>*/}
+          </Article>
         </Section>
 
         <Section>
-          <Article>
+          <Article box>
             <div>
               <H2>
                 Все проекты
@@ -132,57 +143,57 @@ export default async function Portfolio() {
             </div>
 
             <Section className="grid-cols-3">
-              <LinkArticle href={MB_URL}>
+              <Article href={MB_URL}>
                 <P className="text-mb">
                   MineBridge
                 </P>
-              </LinkArticle>
+              </Article>
 
-              <LinkArticle href={HH_URL}>
+              <Article href={HH_URL}>
                 <P className="text-hh">
                   Руки помощи
                 </P>
-              </LinkArticle>
+              </Article>
 
-              <LinkArticle href={TVOK_URL}>
+              <Article href={TVOK_URL}>
                 <P className="text-tvok">
                   TVOK
                 </P>
-              </LinkArticle>
+              </Article>
 
-              <LinkArticle href={"/projects"} className="col-span-3">
+              <Article href={"/projects"} className="col-span-3">
                 <ListHeading>
                   Все проекты
                 </ListHeading>
-              </LinkArticle>
+              </Article>
             </Section>
           </Article>
 
-          <Article>
+          <Article box>
             <H2>
               Навыки
             </H2>
-            <Section className="grid-cols-3">
-              <LinkArticle href="https://www.typescriptlang.org/">
+            <Section className="grid-cols-3 font-medium">
+              <Article href="https://www.typescriptlang.org/">
                 <span className="icon-[logos--typescript-icon] w-[1.2em] h-[1.2em]" />
-                <P>TypeScript</P>
-              </LinkArticle>
+                <P className="text-ts">TypeScript</P>
+              </Article>
 
-              <LinkArticle href="https://developer.mozilla.org/ru/docs/Web/JavaScript">
+              <Article href="https://developer.mozilla.org/ru/docs/Web/JavaScript">
                 <span className="icon-[logos--javascript] w-[1.2em] h-[1.2em]" />
-                <P>JavaScript</P>
-              </LinkArticle>
+                <P className="text-js">JavaScript</P>
+              </Article>
 
-              <LinkArticle href="https://www.python.org/">
+              <Article href="https://www.python.org/">
                 <span className="icon-[logos--python] w-[1.2em] h-[1.2em]"></span>
                 <P>Python</P>
-              </LinkArticle>
+              </Article>
 
-              <LinkArticle href={"/skills"} className="col-span-3">
+              <Article href={"/skills"} className="col-span-3">
                 <ListHeading>
                   Все навыки
                 </ListHeading>
-              </LinkArticle>
+              </Article>
             </Section>
           </Article>
         </Section>
