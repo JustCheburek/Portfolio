@@ -5,7 +5,7 @@ import { MinebridgeSvg } from "@ui/SVGS";
 import Image from "next/image";
 import type { Metadata } from "next";
 
-const ProjectsURL = new URL(process.env.NEXT_PUBLIC_URL!, "/projects");
+const ProjectsURL = new URL("/projects", process.env.NEXT_PUBLIC_URL!);
 
 export const metadata: Metadata = {
   title: "Проекты",

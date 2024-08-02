@@ -3,7 +3,7 @@ import { H1Box, H2, H3, P } from "@components/text";
 import Image from "next/image";
 import type { Metadata } from "next";
 
-const SkillsURL = new URL(process.env.NEXT_PUBLIC_URL!, "/skills");
+const SkillsURL = new URL("/skills", process.env.NEXT_PUBLIC_URL!);
 
 export const metadata: Metadata = {
   title: "Навыки",
