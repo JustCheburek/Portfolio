@@ -36,7 +36,7 @@ export default async function Portfolio() {
             </Article>
 
             <Article>
-              <P suppressHydrationWarning>
+              <P>
                 {dayjs().format("D MMMM")}
               </P>
               <Small>
@@ -45,11 +45,11 @@ export default async function Portfolio() {
             </Article>
 
             <Article className="col-span-2">
-              <P suppressHydrationWarning className="first-letter:uppercase">
-                {weather.description}
+              <P className="first-letter:uppercase">
+                {weather.weather[0].description}
               </P>
               <Small>
-                {weather.temp} °C
+                {weather.main.temp} °C
               </Small>
             </Article>
           </Section>

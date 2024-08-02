@@ -1,17 +1,15 @@
 import {unstable_cache as cache} from "next/cache"
-import {AsyncWeather} from "@cicciosgamino/openweather-apis"
-import type {WeatherApi} from "@/types/weather";
+import OpenWeatherMap from 'openweathermap-ts';
 
 export const Weather = cache(
-		async (): Promise<WeatherApi> => {
-			const weather = await new AsyncWeather()
+		async () => {
+			const openWeather = new OpenWeatherMap({
+				apiKey: process.env.OPEN_WEATHER_KEY!,
+				units: "metric",
+				language: "ru"
+			});
 
-			weather.setLang("ru")
-			weather.setCity("Nakhodka")
-			weather.setUnits("metric")
-			weather.setApiKey(process.env.OPEN_WEATHER_KEY)
-
-			return await weather.getSmartJSON() as WeatherApi
+			return await openWeather.getCurrentWeatherByCityId(2019528)
 		},
 		["weather"],
 		{
