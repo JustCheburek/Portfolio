@@ -20,6 +20,9 @@ const config: Config = {
         "nextjs": "var(--nextjs-color)",
         "mongodb": "var(--mongodb-color)",
         "typegoose": "var(--typegoose-color)"
+      },
+      screens: {
+        "xs": "475px"
       }
     }
   },

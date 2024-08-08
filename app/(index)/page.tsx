@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { Weather } from "@server/weather";
 import { Spotify } from "@server/spotify";
-import { Article, Columns, Main, Section } from "@components/basic";
+import { Article, Columns, FlexBox, Main, Section } from "@components/basic";
 import { H1, H2, H3, ListHeading, P, Small } from "@components/text";
 import { HH_URL, MB_URL, TG_URL, TVOK_URL } from "@/consts";
 import dayjs from "dayjs";
@@ -25,7 +25,7 @@ export default async function Portfolio() {
     <Main>
       <Columns>
         <Section>
-          <Section className="lg:grid-cols-4">
+          <FlexBox>
             <Article>
               <P>
                 {dayjs().format("H a")}
@@ -44,7 +44,7 @@ export default async function Portfolio() {
               </Small>
             </Article>
 
-            <Article className="col-span-2">
+            <Article className="sm:flex-[2]">
               <P className="first-letter:uppercase">
                 {weather.weather[0].description}
               </P>
@@ -52,7 +52,7 @@ export default async function Portfolio() {
                 {weather.main.temp} °C
               </Small>
             </Article>
-          </Section>
+          </FlexBox>
 
           <Article box>
             <div className="flex gap-6 items-center flex-wrap">
@@ -86,14 +86,17 @@ export default async function Portfolio() {
 
             <Section className="grid-cols-2 text-neutral-300/85 hover:text-neutral-200/95 duration-100">
               <Article href={TG_URL} className="p-3">
-                <span className="icon-[logos--telegram] w-[1.2em] h-[1.2em]" />
+                <span className="icon-[logos--telegram] size-[1.2em]" />
                 Написать
               </Article>
               {/* todo: миникнопки для других соцсетей */}
+              <Article href={TG_URL} className="p-3">
+                <span className="icon-[logos--github-icon] size-[1.2em] text-neutral-200" />
+              </Article>
             </Section>
           </Article>
 
-          <Article className="flex" box>
+          <Article className="flex flex-wrap" box>
             {spotify?.item?.album?.images[1]?.url
               ? <Image
                 alt="Плейлист"
@@ -102,7 +105,7 @@ export default async function Portfolio() {
                 height="100"
                 className="aspect-square rounded"
               />
-              : <span className="icon-[pepicons-pencil--play-off] w-[100px] h-[100px] text-neutral-300/85" />
+              : <span className="icon-[pepicons-pencil--play-off] size-[100px] text-neutral-300/85" />
             }
             <div className="grid gap-2">
               <div>
@@ -141,7 +144,7 @@ export default async function Portfolio() {
               </Small>
             </div>
 
-            <Section className="grid-cols-3">
+            <FlexBox>
               <Article href={MB_URL}>
                 <P className="text-mb">
                   MineBridge
@@ -159,41 +162,41 @@ export default async function Portfolio() {
                   TVOK
                 </P>
               </Article>
+            </FlexBox>
 
-              <Article href={"/projects"} className="col-span-3">
-                <ListHeading>
-                  Все проекты
-                </ListHeading>
-              </Article>
-            </Section>
+            <Article href="/projects">
+              <ListHeading>
+                Все проекты
+              </ListHeading>
+            </Article>
           </Article>
 
           <Article box>
             <H2>
               Навыки
             </H2>
-            <Section className="grid-cols-3 font-medium">
-              <Article href="https://www.typescriptlang.org/">
-                <span className="icon-[logos--typescript-icon] w-[1.2em] h-[1.2em]" />
+            <FlexBox>
+              <Article href="https://www.typescriptlang.org/" className="col-span-2 md:col-span-1">
+                <span className="icon-[logos--typescript-icon] size-[1.2em]" />
                 <P className="text-ts">TypeScript</P>
               </Article>
 
               <Article href="https://developer.mozilla.org/ru/docs/Web/JavaScript">
-                <span className="icon-[logos--javascript] w-[1.2em] h-[1.2em]" />
+                <span className="icon-[logos--javascript] size-[1.2em]" />
                 <P className="text-js">JavaScript</P>
               </Article>
 
               <Article href="https://www.python.org/">
-                <span className="icon-[logos--python] w-[1.2em] h-[1.2em]"></span>
+                <span className="icon-[logos--python] size-[1.2em]"></span>
                 <P>Python</P>
               </Article>
+            </FlexBox>
 
-              <Article href={"/skills"} className="col-span-3">
-                <ListHeading>
-                  Все навыки
-                </ListHeading>
-              </Article>
-            </Section>
+            <Article href="/skills">
+              <ListHeading>
+                Все навыки
+              </ListHeading>
+            </Article>
           </Article>
         </Section>
       </Columns>

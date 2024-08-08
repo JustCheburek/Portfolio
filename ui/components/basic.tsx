@@ -1,6 +1,6 @@
 import type { ComponentPropsWithoutRef, PropsWithChildren } from "react";
 import { cn } from "@/server/cn";
-import Link from "next/link";
+import Link, { LinkProps } from "next/link";
 
 export const Main = ({ children, className, ...props }: PropsWithChildren<ComponentPropsWithoutRef<"main">>) => (
   <main className={cn("container gap-8 mx-auto my-8", className)} {...props}>
@@ -14,8 +14,20 @@ export const Columns = ({ children, className, ...props }: PropsWithChildren<Com
   </div>
 );
 
-export const Section = ({ children, className, ...props }: PropsWithChildren<ComponentPropsWithoutRef<"section">>) => (
-  <section className={cn("grid gap-8", className)} {...props}>
+export const FlexBox = ({className, children, ...props}: PropsWithChildren<ComponentPropsWithoutRef<"div">>) => (
+  <div className={cn("flex flex-wrap *:flex-1 gap-8 whitespace-nowrap font-medium", className)} {...props}>
+    {children}
+  </div>
+)
+
+export const Section = (
+  {
+    children,
+    className,
+    cols = false,
+    ...props
+  }: PropsWithChildren<ComponentPropsWithoutRef<"section"> & { cols?: boolean }>) => (
+  <section className={cn("grid gap-8", { "font-medium": cols }, className)} {...props}>
     {children}
   </section>);
 
@@ -26,20 +38,35 @@ const Snow = ({ className }: { className?: string }) => (
   )} />
 );
 
-type Article = PropsWithChildren<{
-  className?: string,
-  href?: string
-  frozen?: boolean
-  box?: boolean
-}>
+interface MyLinkProps extends LinkProps {
+  className?: string;
+}
 
-export const Article = ({ children, className, href, frozen = false, box = false }: Article) => {
+interface MyArticleProps extends ComponentPropsWithoutRef<"article"> {
+  href?: undefined;
+}
+
+interface ExtendArticle extends PropsWithChildren {
+  frozen?: boolean;
+  box?: boolean
+}
+
+type LinkOrArticle = (MyLinkProps | MyArticleProps) & ExtendArticle
+
+export const Article = (
+  {
+    children,
+    className,
+    href,
+    frozen = false,
+    box = false
+  }: LinkOrArticle) => {
   return (
     <LinkOrArticle
       href={href}
       className={cn(
         "grid items-center justify-center p-6 ring-1 ring-neutral-800/80 bg-neutral-900/30 hover:bg-neutral-900/40 rounded-xl hover:scale-[102%] transition duration-700",
-        { "justify-start gap-6": box },
+        { "lg:justify-start gap-6": box },
         { "flex gap-3 bg-neutral-900/60 hover:bg-neutral-900 relative": href },
         { "bg-neutral-900/20 hover:bg-neutral-900/70 hover:scale-[98%]": frozen },
         className
@@ -55,7 +82,7 @@ export const Article = ({ children, className, href, frozen = false, box = false
   );
 };
 
-function LinkOrArticle({ children, className, href }: PropsWithChildren<{ className?: string, href?: string }>) {
+function LinkOrArticle({ children, className, href }: LinkOrArticle) {
   if (typeof href === "string") {
     return (
       <Link

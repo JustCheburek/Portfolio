@@ -33,7 +33,7 @@ export default function Skills() {
 
           <Section>
             <Article href="https://www.typescriptlang.org">
-              <span className="icon-[logos--typescript-icon] w-[2em] h-[2em]" />
+              <span className="icon-[logos--typescript-icon] size-[2em]" />
               <div>
                 <H2 className="text-ts">
                   TypeScript
@@ -45,7 +45,7 @@ export default function Skills() {
             </Article>
 
             <Article href="https://developer.mozilla.org/ru/docs/Web/JavaScript">
-              <span className="icon-[logos--javascript] w-[2em] h-[2em]" />
+              <span className="icon-[logos--javascript] size-[2em]" />
               <div>
                 <H2 className="text-js">
                   JavaScript
@@ -57,7 +57,7 @@ export default function Skills() {
             </Article>
 
             <Article href="https://www.python.org">
-              <span className="icon-[logos--python] w-[2em] h-[2em]" />
+              <span className="icon-[logos--python] size-[2em]" />
               <div>
                 <H2 className="text-py">
                   Python
@@ -75,7 +75,7 @@ export default function Skills() {
 
           <Section className="grid-cols-2">
             <Article href="https://python-telegram-bot.org/">
-              <div className="w-[2em] h-[2em] relative">
+              <div className="size-[2em] relative">
                 <Image
                   src="https://raw.githubusercontent.com/python-telegram-bot/logos/master/logo/png/ptb-logo_240.png"
                   alt="Python telegram bot"
@@ -90,7 +90,7 @@ export default function Skills() {
             </Article>
 
             <Article href="https://discordpy.readthedocs.io/en/latest/index.html">
-              <span className="icon-[logos--discord-icon] w-[2em] h-[2em]" />
+              <span className="icon-[logos--discord-icon] size-[2em]" />
               <div>
                 <H3 className="text-discord">
                   Discord.py
@@ -106,7 +106,7 @@ export default function Skills() {
 
           <Section className="grid-cols-2">
             <Article href="https://nextjs.org">
-              <span className="icon-[logos--nextjs-icon] w-[2em] h-[2em]" />
+              <span className="icon-[logos--nextjs-icon] size-[2em]" />
               <div>
                 <H2 className="text-nextjs">
                   Next.js
@@ -118,7 +118,7 @@ export default function Skills() {
             </Article>
 
             <Article href="https://reactjs.org">
-              <span className="icon-[logos--react] w-[2em] h-[2em]" />
+              <span className="icon-[logos--react] size-[2em]" />
               <div>
                 <H2 className="text-react">
                   React
@@ -135,7 +135,7 @@ export default function Skills() {
           </H2>
           <Section className="grid-cols-2">
             <Article href="https://tailwindcss.com" className="col-span-2">
-              <span className="icon-[logos--tailwindcss-icon] w-[2em] h-[2em]" />
+              <span className="icon-[logos--tailwindcss-icon] size-[2em]" />
               <div>
                 <H2 className="text-tailwind">
                   Tailwind
@@ -147,7 +147,7 @@ export default function Skills() {
             </Article>
 
             <Article href="https://sass-lang.com">
-              <span className="icon-[logos--sass] w-[2em] h-[2em]" />
+              <span className="icon-[logos--sass] size-[2em]" />
               <div>
                 <H2 className="text-sass">
                   Sass
@@ -159,7 +159,7 @@ export default function Skills() {
             </Article>
 
             <Article href="https://www.figma.com">
-              <span className="icon-[logos--figma] w-[2em] h-[2em]" />
+              <span className="icon-[logos--figma] size-[2em]" />
               <div>
                 <H2 className="text-figma">
                   Figma
@@ -173,7 +173,7 @@ export default function Skills() {
           </H2>
           <Section className="grid-cols-2">
             <Article href="https://mongodb.com/">
-              <span className="icon-[logos--mongodb-icon] w-[2em] h-[2em]" />
+              <span className="icon-[logos--mongodb-icon] size-[2em]" />
               <div>
                 <H2 className="text-mongodb">
                   MongoDB

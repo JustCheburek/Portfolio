@@ -34,7 +34,7 @@ export default function Projects() {
           </H2>
 
           <Article href={MB_URL}>
-            <MinebridgeSvg size="3em" />
+            <MinebridgeSvg className="size-[3em]" />
             <div>
               <H2 className="text-mb">
                 MineBridge
@@ -46,7 +46,7 @@ export default function Projects() {
           </Article>
 
           <Article href={HH_URL} frozen>
-            <div className="w-[3.3em] h-[3.3em] relative">
+            <div className="size-[3.3em] relative">
               <Image src="/hh.jpeg" alt="Лого HH - hands of help" className="rounded-full" fill />
             </div>
             <div>
@@ -60,7 +60,7 @@ export default function Projects() {
           </Article>
 
           <Article href={TVOK_URL} frozen>
-            <div className="w-[3.3em] h-[3.3em] relative">
+            <div className="size-[3.3em] relative">
               <Image src="/tvok.png" alt="Лого HH - hands of help" className="rounded-full" fill />
             </div>
             <div>

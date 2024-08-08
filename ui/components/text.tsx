@@ -21,7 +21,7 @@ export const H1 = (
 export const H1Box = ({children}: PropsWithChildren) => (
   <div className="grid grid-cols-5 mx-6">
     <Link href="/" className="flex items-center gap-1">
-      <span className="icon-[pepicons-pencil--arrow-left] w-[1.5em] h-[1.5em]" />
+      <span className="icon-[pepicons-pencil--arrow-left] size-[1.5em]" />
       <span className="hidden sm:inline">Назад</span>
     </Link>
 
@@ -55,7 +55,7 @@ export const H3 = (
 
 export const ListHeading = ({children}: PropsWithChildren) => (
   <H3 className="flex items-center gap-2">
-    <span className="icon-[fluent--list-24-regular] w-[1.3em] h-[1.3em]"/>
+    <span className="icon-[fluent--list-24-regular] size-[1.3em]"/>
     {children}
   </H3>
 )

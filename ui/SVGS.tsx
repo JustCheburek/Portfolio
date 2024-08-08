@@ -1,3 +1,4 @@
+import { cn } from "@/server/cn";
 import type {SVGProps} from "react";
 
 interface Svg extends SVGProps<SVGSVGElement> {
@@ -8,11 +9,10 @@ interface SizeSvg extends Svg {
 	size?: string
 }
 
-export const MinebridgeSvg = ({className = "", size = "100%", ...props}: SizeSvg) => (
+export const MinebridgeSvg = ({className = "", ...props}: SizeSvg) => (
 		<svg
 				xmlSpace="preserve" viewBox="0 0 192 192"
-				className={className}
-				style={{width: size, height: size}} {...props}
+				className={cn("size-[100%]", className)} {...props}
 		>
 			<path
 					fill="#33adb4"
