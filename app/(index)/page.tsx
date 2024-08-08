@@ -90,9 +90,6 @@ export default async function Portfolio() {
                 Написать
               </Article>
               {/* todo: миникнопки для других соцсетей */}
-              <Article href={TG_URL} className="p-3">
-                <span className="icon-[logos--github-icon] size-[1.2em] text-neutral-200" />
-              </Article>
             </Section>
           </Article>
 
