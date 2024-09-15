@@ -39,10 +39,10 @@ export default async function Portfolio() {
 
             <Article>
               <P>
-                {dayjs().format("D MMMM")}
+                {dayjs(new Date().setHours(utcHours + 10)).format("D MMMM")}
               </P>
               <Small>
-                {dayjs().year()} г.
+                {dayjs(new Date().setHours(utcHours + 10)).year()} г.
               </Small>
             </Article>
 
