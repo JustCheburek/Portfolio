@@ -33,18 +33,22 @@ export const Spotify = cache(
 		async (): Promise<CurrentlyPlaying | CurrentlyNotPlaying> => {
 			const {access_token} = await getAccessToken();
 
-			return await axios.get<CurrentlyPlaying>(
-					NOW_PLAYING_ENDPOINT,
-					{
-						headers: {
-							Authorization: `Bearer ${access_token}`,
-						},
-					}
+			const isPlaying = await axios.get<CurrentlyPlaying>(
+				NOW_PLAYING_ENDPOINT,
+				{
+					headers: {
+						Authorization: `Bearer ${access_token}`,
+					},
+				}
 			).then(responce => responce.data);
+
+			console.log(isPlaying)
+
+			return isPlaying
 		},
 		["spotify"],
 		{
-			revalidate: 5,
+			revalidate: 10,
 			tags: ["spotify"]
 		}
 )

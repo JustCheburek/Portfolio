@@ -21,6 +21,8 @@ export default async function Portfolio() {
   const weather = await Weather();
   const spotify = await Spotify();
 
+  const utcHours = new Date().getUTCHours()
+
   return (
     <Main>
       <Columns>
@@ -28,7 +30,7 @@ export default async function Portfolio() {
           <FlexBox>
             <Article>
               <P>
-                {dayjs().format("H a")}
+                {dayjs(new Date().setHours(utcHours + 10)).format("H a")}
               </P>
               <Small>
                 UTC+10
